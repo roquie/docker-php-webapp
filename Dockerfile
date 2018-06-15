@@ -40,7 +40,7 @@ RUN apt-get update \
     && git clone https://github.com/ztombol/varrick.git \
     && cd varrick; make -i install; cd ..; rm -rf varrick \
     && apt-get purge -y git make \
-    && chown -R nginx: /etc/nginx /etc/php/7.2/fpm \
+    && chown -R nginx:nginx /etc/nginx /etc/php/7.2/fpm \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
