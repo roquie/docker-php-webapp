@@ -22,6 +22,7 @@ export PHP_MAX_EXECUTION_TIME=${PHP_MAX_EXECUTION_TIME:="160"}
 export PHP_MAX_INPUT_TIME=${PHP_MAX_INPUT_TIME:="120"}
 export PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:="UTC"}
 export PHP_EXPOSE=${PHP_EXPOSE:="Off"}
+export PHP_OPCACHE=${PHP_OPCACHE:="1"}
 
 varrick -x /etc/nginx/host.conf.tmpl /etc/nginx
 varrick -x /etc/nginx/nginx.conf.tmpl /etc/nginx
