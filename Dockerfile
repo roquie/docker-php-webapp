@@ -49,13 +49,13 @@ ADD conf/supervisord.conf /etc/supervisord.conf
 ADD conf/nginx/* /etc/nginx/
 ADD conf/php-fpm /etc/php/7.2/fpm/
 
-COPY --chown=nginx:nginx app ${NGINX_WEBROOT}
+COPY --chown=nginx:nginx app /srv/www
 
 USER nginx
 
 ADD conf/start.sh /start.sh
 
-VOLUME ${NGINX_WEBROOT}
+VOLUME /srv/www
 
 EXPOSE 8080
 

@@ -49,7 +49,7 @@ ENV PHP_EXPOSE="Off"
 
 ## Volumes
 
-* `$NGINX_WEBROOT`
+* /srv/www
 
 ## Usage example
 

@@ -51,15 +51,8 @@ server {
   text/x-component
   text/x-cross-domain-policy;
 
-  location = /favicon.ico {
-    log_not_found off;
-    access_log off;
-  }
-
   location / {
-    # First attempt to serve request as file, then
-    # as directory, then fall back to index.html
-    try_files \$uri \$uri/ =404;
+    try_files \$uri \$uri/ /index.php?\$args;
   }
 
   # redirect server error pages to the static page /50x.html
@@ -71,16 +64,21 @@ server {
 
   # pass the PHP scripts to FastCGI server listening on socket
   #
-  location ~ \\.php$ {
+  location ~ \\.php(?:$|/) {
     try_files \$uri =404;
-    fastcgi_split_path_info ^(.+\\.php)(/.+)$;
     fastcgi_pass 127.0.0.1:9000;
     fastcgi_index index.php;
     include /etc/nginx/fastcgi.conf;
+    fastcgi_intercept_errors on;
   }
 
   location ~* \\.(jpg|jpeg|gif|png|css|js|ico|xml|pdf|json|svg)\$ {
     expires 5d;
+  }
+
+  location = /favicon.ico {
+    log_not_found off;
+    access_log off;
   }
 
   location = /robots.txt {
