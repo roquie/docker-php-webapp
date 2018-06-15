@@ -1,6 +1,11 @@
 Docker webapp image
 -------------------
 
+[![Build Status](https://travis-ci.org/roquie/docker-php-webapp.svg?branch=master)](https://travis-ci.org/roquie/docker-php-webapp)
+![Docker Automated build](https://img.shields.io/docker/automated/roquie/docker-php-webapp.svg)
+![MicroBadger Size (tag)](https://img.shields.io/microbadger/image-size/roquie/docker-php-webapp.svg)
+[![GitHub license](https://img.shields.io/github/license/roquie/docker-php-webapp.svg)](https://github.com/roquie/docker-php-webapp)
+
 ## Introduction
 
 Docker image includes PHP 7.2, NGINX 1.15, PHP-FPM and supervisord.
@@ -11,6 +16,8 @@ Kill features:
 * Used the env variables for configure many parameters at start.
 * Fully compatible with PaaS-solutions like as Heroku, Flynn, Deis Workflow, Dokku and many others.
 * Internal port of nginx is taken from `$PORT` env variable.
+
+**Every week travis auto build the docker image and push to the registry.**
 
 ## ENV
 

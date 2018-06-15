@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+script:
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - make all
