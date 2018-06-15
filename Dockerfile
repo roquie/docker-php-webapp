@@ -56,6 +56,7 @@ USER nginx
 ADD conf/start.sh /start.sh
 
 VOLUME /srv/www
+WORKDIR /srv/www
 
 EXPOSE 8080
 
