@@ -30,4 +30,4 @@ varrick -x /etc/php/7.2/fpm/pool.d/www.conf.tmpl /etc/php/7.2/fpm/pool.d
 varrick -x /etc/php/7.2/fpm/php.ini.tmpl /etc/php/7.2/fpm
 
 # Start supervisord and services
-/usr/local/bin/supervisord -n -c /etc/supervisord.conf
+/usr/local/bin/supervisord -c /etc/supervisord.conf

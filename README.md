@@ -16,6 +16,8 @@ Kill features:
 * Used the env variables for configure many parameters at start.
 * Fully compatible with PaaS-solutions like as Heroku, Flynn, Deis Workflow, Dokku and many others.
 * Internal port of nginx is taken from `$PORT` env variable.
+* Used Supervisord written on Golang.
+* Small image size (for Debian-based of course).
 
 **Every week travis auto build the docker image and push to the registry.**
 

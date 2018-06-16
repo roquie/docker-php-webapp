@@ -16,7 +16,6 @@ RUN apt-get update \
         git \
         make \
         gettext-base \
-        python-setuptools \
         nginx=${NGINX_VERSION} \
         php7.2-fpm \
         php7.2-cli \
@@ -35,21 +34,21 @@ RUN apt-get update \
         php7.2-intl \
         php7.2-xml \
         php7.2-redis \
-    && easy_install supervisor supervisor-stdout \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && git clone https://github.com/ztombol/varrick.git \
     && cd varrick; make -i install; cd ..; rm -rf varrick \
-    && apt-get purge -y git make \
     && chown -R nginx:nginx /etc/nginx /etc/php/7.2/fpm \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
+    && apt-get purge -y git make python python3; apt-get autoremove -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ADD conf/supervisord.conf /etc/supervisord.conf
 ADD conf/nginx/* /etc/nginx/
 ADD conf/php-fpm /etc/php/7.2/fpm/
 
 COPY --chown=nginx:nginx app /srv/www
+COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/local/bin/supervisord
+ADD conf/supervisord.conf /etc/supervisord.conf
 
 USER nginx
 
