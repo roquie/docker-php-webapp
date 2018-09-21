@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NGINX_VERSION 1.15.0-1~stretch
@@ -13,8 +13,6 @@ RUN apt-get update \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -q -y \
-        git \
-        make \
         gettext-base \
         nginx=${NGINX_VERSION} \
         php7.2-fpm \
@@ -35,20 +33,19 @@ RUN apt-get update \
         php7.2-xml \
         php7.2-redis \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
-    && git clone https://github.com/ztombol/varrick.git \
-    && cd varrick; make -i install; cd ..; rm -rf varrick \
     && chown -R nginx:nginx /etc/nginx /etc/php/7.2/fpm \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
-    && apt-get purge -y git make python python3; apt-get autoremove -y \
+    && apt-get purge -y python python3 perl; apt-get autoremove -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD conf/nginx/* /etc/nginx/
 ADD conf/php-fpm /etc/php/7.2/fpm/
+ADD conf/supervisord.conf /etc/supervisord.conf
 
 COPY --chown=nginx:nginx app /srv/www
+COPY --from=roquie/smalte:latest /app/smalte /usr/local/bin/smalte
 COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/local/bin/supervisord
-ADD conf/supervisord.conf /etc/supervisord.conf
 
 USER nginx
 

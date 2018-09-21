@@ -1,7 +1,7 @@
 IMAGE_NAME = roquie/docker-php-webapp
 VERSION = latest
 
-build:
+image:
 	docker build -t $(IMAGE_NAME):$(VERSION) .
 
 push:
@@ -10,4 +10,4 @@ push:
 run:
 	docker run --rm -it -p 8080:8080 $(IMAGE_NAME):$(VERSION)
 
-all: build push
+all: image push

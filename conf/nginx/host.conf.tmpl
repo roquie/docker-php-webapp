@@ -52,20 +52,20 @@ server {
   text/x-cross-domain-policy;
 
   location / {
-    try_files \$uri \$uri/ /index.php?\$args;
+    try_files $uri $uri/ /index.php?$args;
   }
 
   # pass the PHP scripts to FastCGI server listening on socket
   #
   location ~ \\.php(?:$|/) {
-    try_files \$uri =404;
+    try_files $uri =404;
     fastcgi_pass 127.0.0.1:9000;
     fastcgi_index index.php;
     include /etc/nginx/fastcgi.conf;
     fastcgi_intercept_errors on;
   }
 
-  location ~* \\.(jpg|jpeg|gif|png|css|js|ico|xml|pdf|json|svg)\$ {
+  location ~* \\.(jpg|jpeg|gif|png|css|js|ico|xml|pdf|json|svg)$ {
     expires 5d;
   }
 

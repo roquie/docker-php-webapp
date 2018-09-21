@@ -10,7 +10,7 @@ events {
 }
 
 http {
-  access_log off;
+  access_log $NGINX_ACCESS_LOG;
   sendfile on;
   charset utf-8;
 

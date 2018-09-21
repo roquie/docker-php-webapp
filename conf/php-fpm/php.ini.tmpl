@@ -43,7 +43,7 @@
 ; The value can be a string, a number, a PHP constant (e.g. E_ALL or M_PI), one
 ; of the INI constants (On, Off, True, False, Yes, No and None) or an expression
 ; (e.g. E_ALL & ~E_NOTICE), a quoted string ("bar"), or a reference to a
-; previously set variable or directive (e.g. \${foo})
+; previously set variable or directive (e.g. ${foo})
 
 ; Expressions in the INI file are limited to bitwise operators and parentheses:
 ; |  bitwise OR
@@ -522,7 +522,7 @@ report_memleaks = On
 ; This setting is on by default.
 ;report_zend_debug = 0
 
-; Store the last error/warning message in \$php_errormsg (boolean). Setting this value
+; Store the last error/warning message in $php_errormsg (boolean). Setting this value
 ; to On can assist in debugging and is appropriate for development servers. It should
 ; however be disabled on production servers.
 ; This directive is DEPRECATED.
@@ -633,9 +633,9 @@ variables_order = "GPCS"
 ; http://php.net/request-order
 request_order = "GP"
 
-; This directive determines whether PHP registers \$argv & \$argc each time it
-; runs. \$argv contains an array of all the arguments passed to PHP when a script
-; is invoked. \$argc contains an integer representing the number of arguments
+; This directive determines whether PHP registers $argv & $argc each time it
+; runs. $argv contains an array of all the arguments passed to PHP when a script
+; is invoked. $argc contains an integer representing the number of arguments
 ; that were passed when the script was invoked. These arrays are extremely
 ; useful when running scripts from the command line. When this directive is
 ; enabled, registering these variables consumes CPU cycles and memory each time
@@ -658,8 +658,8 @@ auto_globals_jit = On
 
 ; Whether PHP will read the POST data.
 ; This option is enabled by default.
-; Most likely, you won't want to disable this option globally. It causes \$_POST
-; and \$_FILES to always be empty; the only way you will be able to read the
+; Most likely, you won't want to disable this option globally. It causes $_POST
+; and $_FILES to always be empty; the only way you will be able to read the
 ; POST data will be through the php://input stream wrapper. This can be useful
 ; to proxy requests or to process the POST data in a memory efficient fashion.
 ; http://php.net/enable-post-data-reading
@@ -1142,7 +1142,7 @@ mysqli.allow_persistent = On
 mysqli.max_links = -1
 
 ; Default port number for mysqli_connect().  If unset, mysqli_connect() will use
-; the \$MYSQL_TCP_PORT or the mysql-tcp entry in /etc/services or the
+; the $MYSQL_TCP_PORT or the mysql-tcp entry in /etc/services or the
 ; compile-time value defined MYSQL_PORT (in that order).  Win32 will only look
 ; at MYSQL_PORT.
 ; http://php.net/mysqli.default-port
@@ -1494,7 +1494,7 @@ session.trans_sid_tags = "a=href,area=href,frame=src,form="
 ; http://php.net/session.hash-bits-per-character
 session.sid_bits_per_character = 5
 
-; Enable upload progress tracking in \$_SESSION
+; Enable upload progress tracking in $_SESSION
 ; Default Value: On
 ; Development Value: On
 ; Production Value: On
@@ -1509,14 +1509,14 @@ session.sid_bits_per_character = 5
 ; http://php.net/session.upload-progress.cleanup
 ;session.upload_progress.cleanup = On
 
-; A prefix used for the upload progress key in \$_SESSION
+; A prefix used for the upload progress key in $_SESSION
 ; Default Value: "upload_progress_"
 ; Development Value: "upload_progress_"
 ; Production Value: "upload_progress_"
 ; http://php.net/session.upload-progress.prefix
 ;session.upload_progress.prefix = "upload_progress_"
 
-; The index name (concatenated with the prefix) in \$_SESSION
+; The index name (concatenated with the prefix) in $_SESSION
 ; containing the upload progress information
 ; Default Value: "PHP_SESSION_UPLOAD_PROGRESS"
 ; Development Value: "PHP_SESSION_UPLOAD_PROGRESS"
