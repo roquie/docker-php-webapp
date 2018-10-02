@@ -1,3 +1,7 @@
+## [1.0.1] - 02-10-2018
+### Bugfix
+- Fixed container quitting when user send `Ctrl+C` input
+
 ## [1.0.0] - 21-09-2018
 ### First stable version
 - Drop varrick template engine because his doesn't work in kubernetes cluster
