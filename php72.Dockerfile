@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_VERSION 7.3
+ENV PHP_VERSION 7.2
 ENV NGINX_VERSION 1.15.8-1~stretch
 ENV NGINX_WEBROOT /srv/www
 
