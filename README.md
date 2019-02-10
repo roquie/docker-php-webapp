@@ -8,7 +8,11 @@ Docker webapp image
 
 ## Introduction
 
-Docker image includes PHP 7.2, NGINX 1.15, PHP-FPM and supervisord.
+Classic container who runs NGINX and PHP-FPM together. For best performance I recommend
+use my [swoole docker image](https://github.com/roquie/docker-swoole-webapp) or [RoadRunner](https://github.com/spiral/roadrunner)
+if swoole extension not suitable for you.
+
+Docker image includes PHP 7.3, NGINX 1.15, PHP-FPM and supervisord.
 
 Kill features:
 * Security-frendly because work as non root user.
@@ -58,7 +62,7 @@ ENV PHP_OPCACHE="1"
 ## Usage example
 
 ```bash
-FROM roquie/docker-php-webapp:latest
+FROM roquie/docker-php-webapp:7.3-latest
 
 COPY --chown=nginx:nginx . /srv/www
 ```
@@ -66,7 +70,28 @@ COPY --chown=nginx:nginx . /srv/www
 ## Versions
 
 * latest
+* 7.2-latest
+* 7.3-latest
 
 ## License
 
-MIT
+Copyright (c) 2019 Roquie <roquie0@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+

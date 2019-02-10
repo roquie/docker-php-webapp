@@ -28,8 +28,9 @@ export PHP_OPCACHE=${PHP_OPCACHE:="1"}
 smalte build --scope PORT --scope NGINX\.* --scope PHP\.* \
     /etc/nginx/host.conf.tmpl:/etc/nginx/host.conf \
     /etc/nginx/nginx.conf.tmpl:/etc/nginx/nginx.conf \
-    /etc/php/7.2/fpm/pool.d/www.conf.tmpl:/etc/php/7.2/fpm/pool.d/www.conf \
-    /etc/php/7.2/fpm/php.ini.tmpl:/etc/php/7.2/fpm/php.ini
+    /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf.tmpl:/etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
+    /etc/php/${PHP_VERSION}/fpm/php.ini.tmpl:/etc/php/${PHP_VERSION}/fpm/php.ini \
+    /etc/php/${PHP_VERSION}/fpm/php-fpm.conf.tmpl:/etc/php/${PHP_VERSION}/fpm/php-fpm.conf
 
 echo "> Configuration loaded."
 echo "> Run application."
