@@ -11,5 +11,5 @@ script:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - make all VERSION=7.2-latest FILE=php72.Dockerfile
   - make all VERSION=7.3-latest
-  - docker tag roquie/docker-php-webapp:php7.3-latest roquie/docker-php-webapp:latest
+  - docker tag roquie/docker-php-webapp:7.3-latest roquie/docker-php-webapp:latest
   - docker push roquie/docker-php-webapp:latest
