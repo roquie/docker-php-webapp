@@ -31,6 +31,7 @@ smalte build --scope PORT --scope NGINX\.* --scope PHP\.* \
     /etc/nginx/nginx.conf.tmpl:/etc/nginx/nginx.conf \
     /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf.tmpl:/etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
     /etc/php/${PHP_VERSION}/fpm/php.ini.tmpl:/etc/php/${PHP_VERSION}/fpm/php.ini \
+    /etc/php/${PHP_VERSION}/cli/php.ini.tmpl:/etc/php/${PHP_VERSION}/cli/php.ini \
     /etc/php/${PHP_VERSION}/fpm/php-fpm.conf.tmpl:/etc/php/${PHP_VERSION}/fpm/php-fpm.conf
 
 echo "> Configuration loaded."

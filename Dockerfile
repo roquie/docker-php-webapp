@@ -34,16 +34,18 @@ RUN apt-get update \
         php${PHP_VERSION}-xml \
         php${PHP_VERSION}-redis \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
-    && chown -R nginx:nginx /etc/nginx /etc/php/${PHP_VERSION}/fpm \
+    && chown -R nginx:nginx /etc/nginx /etc/php/${PHP_VERSION}/fpm /etc/php/${PHP_VERSION}/cli \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
     && apt-get purge -y python python3 perl; apt-get autoremove -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ADD conf/nginx/* /etc/nginx/
-ADD conf/php-fpm /etc/php/${PHP_VERSION}/fpm/
-ADD conf/php.sh /usr/sbin/php.sh
-ADD conf/supervisord.conf /etc/supervisord.conf
+COPY conf/nginx/* /etc/nginx/
+COPY conf/php-fpm /etc/php/${PHP_VERSION}/fpm/
+COPY conf/php.ini.tmpl /etc/php/${PHP_VERSION}/fpm/
+COPY conf/php.ini.tmpl /etc/php/${PHP_VERSION}/cli/
+COPY conf/php.sh /usr/sbin/php.sh
+COPY conf/supervisord.conf /etc/supervisord.conf
 
 COPY --chown=nginx:nginx app /srv/www
 COPY --from=roquie/smalte:latest /app/smalte /usr/local/bin/smalte
