@@ -24,10 +24,11 @@ export PHP_MAX_INPUT_TIME=${PHP_MAX_INPUT_TIME:="120"}
 export PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:="UTC"}
 export PHP_EXPOSE=${PHP_EXPOSE:="Off"}
 
-# backward compatibility
-if [[ -z "$PHP_OPCACHE" ]]
+# backward compatibility, $PHP_OPCACHE is deprecated.
+if [[ "$PHP_OPCACHE" != "" ]]
 then
     export PHP_OPCACHE_ENABLED="$PHP_OPCACHE"
+    unset PHP_OPCACHE
 fi
 
 export PHP_OPCACHE_ENABLED=${PHP_OPCACHE_ENABLED:="1"}
