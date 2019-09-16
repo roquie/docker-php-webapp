@@ -23,7 +23,14 @@ export PHP_MAX_EXECUTION_TIME=${PHP_MAX_EXECUTION_TIME:="160"}
 export PHP_MAX_INPUT_TIME=${PHP_MAX_INPUT_TIME:="120"}
 export PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:="UTC"}
 export PHP_EXPOSE=${PHP_EXPOSE:="Off"}
-export PHP_OPCACHE=${PHP_OPCACHE:="1"}
+
+# backward compatibility
+if [[ -z "$PHP_OPCACHE" ]]
+then
+    export PHP_OPCACHE_ENABLED="$PHP_OPCACHE"
+fi
+
+export PHP_OPCACHE_ENABLED=${PHP_OPCACHE_ENABLED:="1"}
 export PHP_OPCACHE_SAVE_COMMENTS=${PHP_OPCACHE_SAVE_COMMENTS:="0"}
 
 smalte build --scope PORT --scope NGINX\.* --scope PHP\.* \
