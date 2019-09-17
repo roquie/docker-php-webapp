@@ -34,6 +34,8 @@ RUN apt-get update \
         php${PHP_VERSION}-xml \
         php${PHP_VERSION}-redis \
         php${PHP_VERSION}-exif \
+        php${PHP_VERSION}-bcmath \
+        php${PHP_VERSION}-xmlreader \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && chown -R nginx:nginx /etc/nginx /etc/php/${PHP_VERSION}/fpm /etc/php/${PHP_VERSION}/cli \
     && rm -rf /etc/nginx/conf.d/default.conf \
