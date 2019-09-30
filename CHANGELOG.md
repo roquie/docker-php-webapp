@@ -3,6 +3,7 @@
 - Fixed opcache env variable
 - Fixed logs output (Use `PHP_FPM_LOG_LEVEL` for configure it)
 - Add `bcmath` and `xmlreader` extensions.
+- Commented `user` and `group` options in php-fpm config
 
 ## [1.1.0] - 10-02-2019
 ### PHP 7.3
