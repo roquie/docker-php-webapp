@@ -1,3 +1,9 @@
+## [1.2.0] - 30-09-2019
+### Bugfixes
+- Fixed opcache env variable
+- Fixed logs output (Use `PHP_FPM_LOG_LEVEL` for configure it)
+- Add `bcmath` and `xmlreader` extensions.
+
 ## [1.1.0] - 10-02-2019
 ### PHP 7.3
 - Fixed failed travis build (gpg tty problem)
