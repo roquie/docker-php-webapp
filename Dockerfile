@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PHP_VERSION 7.3
 ENV NGINX_VERSION 1.15.8-1~stretch
 ENV NGINX_WEBROOT /srv/www
+ENV APCU_VERSION v5.1.18
 
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -q -y \
@@ -13,7 +14,7 @@ RUN apt-get update \
     && curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
-    && apt-get install --no-install-recommends --no-install-suggests -q -y \
+    && apt-get install --no-install-recommends --no-install-suggests php7.3-dev git make -q -y \
         gettext-base \
         nginx=${NGINX_VERSION} \
         php${PHP_VERSION}-fpm \
@@ -36,11 +37,17 @@ RUN apt-get update \
         php${PHP_VERSION}-exif \
         php${PHP_VERSION}-bcmath \
         php${PHP_VERSION}-xmlreader \
+    && git clone --recurse-submodules -j8 --branch $APCU_VERSION https://github.com/krakjoe/apcu.git \
+    && cd apcu \
+    && phpize \
+    && ./configure \
+    && make -j $(nproc) \
+    && make install \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && chown -R nginx:nginx /etc/nginx /etc/php/${PHP_VERSION}/fpm /etc/php/${PHP_VERSION}/cli \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
-    && apt-get purge -y python python3 perl; apt-get autoremove -y \
+    && apt-get purge -y php7.3-dev git make python python3 perl; apt-get autoremove -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY conf/nginx/* /etc/nginx/
