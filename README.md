@@ -8,11 +8,11 @@ Docker webapp image
 
 ## Introduction
 
-Classic container who runs NGINX and PHP-FPM together. For best performance I recommend
+A classic container who runs NGINX and PHP-FPM together. For best performance I recommend
 use my [swoole docker image](https://github.com/roquie/docker-swoole-webapp) or [RoadRunner](https://github.com/spiral/roadrunner)
-if swoole extension not suitable for you.
+if `swoole` extension not suitable for you.
 
-Docker image includes PHP 7.3, NGINX 1.15, PHP-FPM and supervisord.
+Docker image includes PHP 7.3/7.4, NGINX 1.15, PHP-FPM and supervisord.
 
 Kill features:
 * Security-frendly because work as non root user.
@@ -72,7 +72,6 @@ COPY --chown=nginx:nginx . /srv/www
 ## Versions
 
 * latest
-* 7.2-latest
 * 7.3-latest
 
 ## License
