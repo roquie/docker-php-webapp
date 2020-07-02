@@ -222,7 +222,7 @@ precision = 14
 ; Development Value: 4096
 ; Production Value: 4096
 ; http://php.net/output-buffering
-output_buffering = 4096
+output_buffering = 65535
 
 ; You can redirect all of the output of your scripts to a function.  For
 ; example, if you set output_handler to "mb_output_handler", character
@@ -338,7 +338,7 @@ disable_classes =
 ; be increased on systems where PHP opens many files to reflect the quantity of
 ; the file operations performed.
 ; http://php.net/realpath-cache-size
-;realpath_cache_size = 4096k
+realpath_cache_size = 15M
 
 ; Duration of time, in seconds for which to cache realpath information for a given
 ; file or directory. For systems with rarely changing files, consider increasing this
@@ -1328,7 +1328,7 @@ session.save_handler = files
 ; where MODE is the octal representation of the mode. Note that this
 ; does not overwrite the process's umask.
 ; http://php.net/session.save-path
-;session.save_path = "/tmp"
+session.save_path = "/tmp"
 
 ; Whether to use strict session mode.
 ; Strict session mode does not accept an uninitialized session ID, and

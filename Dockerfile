@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PHP_VERSION 7.3
 ENV NGINX_VERSION 1.15.8-1~stretch
 ENV NGINX_WEBROOT /srv/www
+ENV APCU_VERSION v5.1.18
 
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -q -y \
@@ -40,7 +41,7 @@ RUN apt-get update \
     && chown -R nginx:nginx /etc/nginx /etc/php/${PHP_VERSION}/fpm /etc/php/${PHP_VERSION}/cli \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
-    && apt-get purge -y python python3 perl; apt-get autoremove -y \
+    && apt-get purge -y php7.3-dev git make python python3 perl; apt-get autoremove -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY conf/nginx/* /etc/nginx/
