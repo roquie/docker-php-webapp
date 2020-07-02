@@ -1,3 +1,9 @@
+## [1.3.0] - 02-06-2020
+### PHP 7.4 support
+- Drop 7.2
+- Fixes some bugs
+- `7.4-beta1` tag
+
 ## [1.2.0] - 30-09-2019
 ### Bugfixes
 - Fixed opcache env variable

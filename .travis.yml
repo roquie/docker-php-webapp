@@ -9,6 +9,6 @@ branches:
 
 script:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - make all VERSION=7.3-latest
-  - docker tag roquie/docker-php-webapp:7.3-latest roquie/docker-php-webapp:latest
+  - make all VERSION=7.4-latest
+  - docker tag roquie/docker-php-webapp:7.4-latest roquie/docker-php-webapp:latest
   - docker push roquie/docker-php-webapp:latest

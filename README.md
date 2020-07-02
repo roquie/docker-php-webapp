@@ -12,7 +12,7 @@ A classic container who runs NGINX and PHP-FPM together. For best performance I 
 use my [swoole docker image](https://github.com/roquie/docker-swoole-webapp) or [RoadRunner](https://github.com/spiral/roadrunner)
 if `swoole` extension not suitable for you.
 
-Docker image includes PHP 7.3/7.4, NGINX 1.15, PHP-FPM and supervisord.
+Docker image includes PHP 7.3/7.4, NGINX, PHP-FPM and supervisord.
 
 Kill features:
 * Security-frendly because work as non root user.
@@ -64,7 +64,7 @@ ENV PHP_OPCACHE_SAVE_COMMENTS="0"
 ## Usage example
 
 ```bash
-FROM roquie/docker-php-webapp:7.3-latest
+FROM roquie/docker-php-webapp:7.4-latest
 
 COPY --chown=nginx:nginx . /srv/www
 ```
@@ -73,6 +73,7 @@ COPY --chown=nginx:nginx . /srv/www
 
 * latest
 * 7.3-latest
+* 7.4-beta1
 
 ## License
 
