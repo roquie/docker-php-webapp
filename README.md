@@ -64,7 +64,7 @@ ENV PHP_OPCACHE_SAVE_COMMENTS="0"
 ## Usage example
 
 ```bash
-FROM roquie/docker-php-webapp:7.4-latest
+FROM roquie/docker-php-webapp:7.4-1.4.0
 
 COPY --chown=nginx:nginx . /srv/www
 ```
@@ -73,7 +73,7 @@ COPY --chown=nginx:nginx . /srv/www
 
 * latest
 * 7.3-latest
-* 7.4-beta1
+* 7.4-latest or 7.4-{semver} 
 
 ## License
 

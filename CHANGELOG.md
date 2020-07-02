@@ -1,3 +1,10 @@
+## [1.4.0] - 02-06-2020
+### PHP 7.4 support
+- Opcache preload support thought `$PHP_OPCACHE_PRELOAD`
+- Using semver in image tag name. 
+- `opcache.file_update_protection=0` as default option instead of `2`.
+- `7.4-1.4.0` tag
+
 ## [1.3.0] - 02-06-2020
 ### PHP 7.4 support
 - Drop 7.2

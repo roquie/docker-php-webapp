@@ -33,6 +33,7 @@ then
 fi
 
 export PHP_OPCACHE_ENABLED=${PHP_OPCACHE_ENABLED:="1"}
+export PHP_OPCACHE_PRELOAD=${PHP_OPCACHE_PRELOAD:=""}
 export PHP_OPCACHE_SAVE_COMMENTS=${PHP_OPCACHE_SAVE_COMMENTS:="0"}
 
 smalte build --scope PORT --scope NGINX\.* --scope PHP\.* \
