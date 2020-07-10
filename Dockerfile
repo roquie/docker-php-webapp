@@ -39,7 +39,7 @@ RUN apt-get update \
     && chown -R nginx:nginx /etc/nginx /etc/php/${PHP_VERSION}/fpm /etc/php/${PHP_VERSION}/cli \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && rm /usr/share/nginx/html/* \
-    && apt-get purge -y php7.3-dev git make python python3 perl; apt-get autoremove -y \
+    && apt-get purge -y php{$PHP_VERSION}-dev git make python python3 perl; apt-get autoremove -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY conf/nginx/* /etc/nginx/
