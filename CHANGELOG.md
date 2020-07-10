@@ -1,3 +1,10 @@
+## [1.5.0] - 02-06-2020
+### Use unix sockets instead of localhost
+- Unix sockets
+- Reduced image size (I forgot delete `php7.4-dev` package) 
+- `keepalive 22` -> `keepalive 30`
+- Increased fastcgi buffer size.
+
 ## [1.4.0] - 02-06-2020
 ### PHP 7.4 support
 - Opcache preload support thought `$PHP_OPCACHE_PRELOAD`
