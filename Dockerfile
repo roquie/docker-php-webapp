@@ -1,14 +1,14 @@
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_VERSION 7.4
+ENV PHP_VERSION 8.1
 ENV NGINX_WEBROOT /srv/www
 
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -q -y \
        gnupg2 dirmngr curl apt-transport-https lsb-release ca-certificates \
     && apt-key adv --no-tty --keyserver keyserver.ubuntu.com --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
-    && echo "deb https://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list \
+    && echo "deb https://nginx.org/packages/mainline/debian/ $(lsb_release -sc) nginx" >> /etc/apt/sources.list \
     && curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \

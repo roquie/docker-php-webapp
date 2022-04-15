@@ -1,5 +1,5 @@
-Docker webapp image
--------------------
+PHP Docker webapp image
+-----------------------
 
 [![Build Status](https://travis-ci.org/roquie/docker-php-webapp.svg?branch=master)](https://travis-ci.org/roquie/docker-php-webapp)
 ![Docker Automated build](https://img.shields.io/docker/automated/roquie/docker-php-webapp.svg)
@@ -8,14 +8,12 @@ Docker webapp image
 
 ## Introduction
 
-A classic container who runs NGINX and PHP-FPM together. For best performance I recommend
-use my [swoole docker image](https://github.com/roquie/docker-swoole-webapp) or [RoadRunner](https://github.com/spiral/roadrunner)
-if `swoole` extension not suitable for you.
+A classic container who runs NGINX and PHP-FPM together. 
 
-Docker image includes PHP 7.3/7.4, NGINX, PHP-FPM and supervisord.
+Docker image includes PHP, NGINX, PHP-FPM and supervisord.
 
-Kill features:
-* Security-frendly because work as non root user.
+Features:
+* Security-frendly because work as non-root user.
 * Fast start at run.
 * Used the env variables for configure many parameters at start.
 * Fully compatible with PaaS-solutions like as Heroku, Flynn, Deis Workflow, Dokku and many others.
@@ -64,7 +62,7 @@ ENV PHP_OPCACHE_SAVE_COMMENTS="0"
 ## Usage example
 
 ```bash
-FROM roquie/docker-php-webapp:7.4-1.5.0
+FROM roquie/docker-php-webapp:8.1-1.0.0
 
 COPY --chown=nginx:nginx . /srv/www
 ```
@@ -72,12 +70,14 @@ COPY --chown=nginx:nginx . /srv/www
 ## Versions
 
 * latest
-* 7.4-latest or 7.4-{semver} 
+* 8.1-latest or 8.1-{semver}
+* 8.0-latest or 8.0-{semver}
+* 7.4-latest or 7.4-{semver}
 * 7.3-latest
 
 ## License
 
-Copyright (c) 2020 Roquie <roquie0@gmail.com>
+Copyright (c) 2022 Roquie <roquie0@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
