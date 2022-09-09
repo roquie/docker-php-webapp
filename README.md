@@ -8,7 +8,7 @@ PHP Docker webapp image
 
 ## Introduction
 
-A classic container who runs NGINX and PHP-FPM together. 
+A classic container which runs NGINX and PHP-FPM together. 
 
 Docker image includes PHP, NGINX, PHP-FPM and supervisord.
 
